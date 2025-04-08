@@ -3,7 +3,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { Home, PieChart, Wallet, Goal, Banknote, BookOpen, HelpCircle } from "lucide-react";
+import { Home, Wallet, Goal, Banknote, BookOpen, HelpCircle } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -11,7 +11,6 @@ interface LayoutProps {
 
 const menuItems = [
   { name: "Dashboard", icon: Home, href: "/" },
-  { name: "Expenses", icon: PieChart, href: "/expenses" },
   { name: "Accounts", icon: Wallet, href: "/accounts" },
   { name: "Goals", icon: Goal, href: "/goals" },
   { name: "Budgets", icon: Banknote, href: "/budgets" },
