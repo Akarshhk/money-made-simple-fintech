@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,26 +15,32 @@ declare global {
 const DepositFunds = () => {
   const [amount, setAmount] = useState<string>("1000");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isRazorpayLoaded, setIsRazorpayLoaded] = useState<boolean>(false);
   const { toast } = useToast();
 
-  const loadRazorpay = () => {
-    return new Promise<boolean>((resolve) => {
-      const script = document.createElement("script");
-      script.src = "https://checkout.razorpay.com/v1/checkout.js";
-      script.onload = () => resolve(true);
-      script.onerror = () => resolve(false);
-      document.body.appendChild(script);
-    });
-  };
+  useEffect(() => {
+    // Load Razorpay script when component mounts
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    script.onload = () => setIsRazorpayLoaded(true);
+    document.body.appendChild(script);
+    
+    return () => {
+      // Clean up script if component unmounts
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   const handleDeposit = async () => {
     setIsLoading(true);
     
     try {
       const amountInPaise = parseInt(amount) * 100; // Convert to paise
-      const razorpayLoaded = await loadRazorpay();
       
-      if (!razorpayLoaded) {
+      if (!window.Razorpay) {
         toast({
           title: "Error",
           description: "Razorpay SDK failed to load. Please try again later.",
@@ -124,7 +130,7 @@ const DepositFunds = () => {
               </div>
               <Button 
                 onClick={handleDeposit}
-                disabled={isLoading || parseInt(amount) < 100}
+                disabled={isLoading || parseInt(amount) < 100 || !isRazorpayLoaded}
                 className="min-w-[100px]"
               >
                 {isLoading ? "Processing..." : "Deposit"}
@@ -136,6 +142,9 @@ const DepositFunds = () => {
             <p>• Minimum deposit amount: ₹100</p>
             <p>• Funds will be available immediately after successful payment</p>
             <p>• Deposits are processed securely through Razorpay</p>
+            {!isRazorpayLoaded && (
+              <p className="text-amber-600">• Loading Razorpay payment system...</p>
+            )}
           </div>
         </div>
       </CardContent>
