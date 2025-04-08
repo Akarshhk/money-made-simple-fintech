@@ -11,12 +11,12 @@ type ExpenseCategory = {
 
 const ExpenseBreakdown = () => {
   const data: ExpenseCategory[] = [
-    { name: "Housing", value: 1200, color: "#1A365D" },
-    { name: "Food", value: 600, color: "#4ECCA3" },
-    { name: "Transportation", value: 400, color: "#3498DB" },
-    { name: "Utilities", value: 300, color: "#F39C12" },
-    { name: "Entertainment", value: 200, color: "#E74C3C" },
-    { name: "Other", value: 135.41, color: "#9B59B6" },
+    { name: "Housing", value: 90000, color: "#1A365D" },
+    { name: "Food", value: 45000, color: "#4ECCA3" },
+    { name: "Transportation", value: 30000, color: "#3498DB" },
+    { name: "Utilities", value: 22500, color: "#F39C12" },
+    { name: "Entertainment", value: 15000, color: "#E74C3C" },
+    { name: "Other", value: 10155.75, color: "#9B59B6" },
   ];
 
   return (
@@ -42,7 +42,7 @@ const ExpenseBreakdown = () => {
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-              <Tooltip formatter={(value) => `$${value}`} />
+              <Tooltip formatter={(value) => `₹${value}`} />
               <Legend />
             </PieChart>
           </ResponsiveContainer>
@@ -54,12 +54,12 @@ const ExpenseBreakdown = () => {
                 <div className="h-3 w-3 mr-2" style={{ backgroundColor: category.color }}></div>
                 <span>{category.name}</span>
               </div>
-              <span className="font-medium">${category.value}</span>
+              <span className="font-medium">₹{category.value.toLocaleString('en-IN')}</span>
             </div>
           ))}
           <div className="flex items-center justify-between pt-2 border-t mt-2">
             <span className="font-semibold">Total</span>
-            <span className="font-semibold">${data.reduce((acc, item) => acc + item.value, 0)}</span>
+            <span className="font-semibold">₹{data.reduce((acc, item) => acc + item.value, 0).toLocaleString('en-IN')}</span>
           </div>
         </div>
       </CardContent>

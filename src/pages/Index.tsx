@@ -6,6 +6,7 @@ import ExpenseBreakdown from "../components/dashboard/ExpenseBreakdown";
 import RecentTransactions from "../components/dashboard/RecentTransactions";
 import SavingGoals from "../components/dashboard/SavingGoals";
 import FinancialTips from "../components/dashboard/FinancialTips";
+import DepositFunds from "../components/dashboard/DepositFunds";
 
 const Index = () => {
   return (
@@ -18,14 +19,17 @@ const Index = () => {
         
         <FinancialOverview />
         
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <ExpenseBreakdown />
           <RecentTransactions />
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <SavingGoals />
-          <FinancialTips />
+          <div className="space-y-4">
+            <DepositFunds />
+            <FinancialTips />
+          </div>
         </div>
       </div>
     </Layout>

@@ -1,6 +1,6 @@
 
 import React from "react";
-import { ArrowUpRight, ArrowDownRight, DollarSign } from "lucide-react";
+import { ArrowUpRight, ArrowDownRight, Wallet } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const FinancialOverview = () => {
@@ -9,10 +9,10 @@ const FinancialOverview = () => {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
           <CardTitle className="text-sm font-medium">Total Balance</CardTitle>
-          <DollarSign className="h-4 w-4 text-muted-foreground" />
+          <Wallet className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">$14,326.59</div>
+          <div className="text-2xl font-bold">₹10,73,494.25</div>
           <div className="flex items-center pt-1 text-sm text-green-600">
             <ArrowUpRight className="h-4 w-4 mr-1" />
             <span>4.3% from last month</span>
@@ -37,7 +37,7 @@ const FinancialOverview = () => {
           </svg>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">$6,420.00</div>
+          <div className="text-2xl font-bold">₹4,81,500.00</div>
           <div className="flex items-center pt-1 text-sm text-green-600">
             <ArrowUpRight className="h-4 w-4 mr-1" />
             <span>2.1% from last month</span>
@@ -62,7 +62,7 @@ const FinancialOverview = () => {
           </svg>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">$2,835.41</div>
+          <div className="text-2xl font-bold">₹2,12,655.75</div>
           <div className="flex items-center pt-1 text-sm text-red-600">
             <ArrowDownRight className="h-4 w-4 mr-1" />
             <span>1.5% from last month</span>
@@ -87,9 +87,9 @@ const FinancialOverview = () => {
           </svg>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">$10,000.00</div>
+          <div className="text-2xl font-bold">₹7,50,000.00</div>
           <div className="pt-2">
-            <div className="text-sm text-muted-foreground pb-1">$4,236 of $10,000</div>
+            <div className="text-sm text-muted-foreground pb-1">₹3,17,700 of ₹7,50,000</div>
             <div className="progress-bar">
               <div className="progress-value" style={{ width: '42.36%' }}></div>
             </div>

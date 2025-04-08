@@ -17,7 +17,7 @@ const transactions: Transaction[] = [
   {
     id: "t1",
     name: "Rent Payment",
-    amount: 1200,
+    amount: 90000,
     type: "expense",
     category: "Housing",
     icon: <Home className="h-4 w-4" />,
@@ -26,7 +26,7 @@ const transactions: Transaction[] = [
   {
     id: "t2",
     name: "Starbucks Coffee",
-    amount: 5.75,
+    amount: 430,
     type: "expense",
     category: "Food",
     icon: <Coffee className="h-4 w-4" />,
@@ -35,7 +35,7 @@ const transactions: Transaction[] = [
   {
     id: "t3",
     name: "Salary Deposit",
-    amount: 3210,
+    amount: 240750,
     type: "income",
     category: "Paycheck",
     icon: <ArrowUpRight className="h-4 w-4" />,
@@ -44,7 +44,7 @@ const transactions: Transaction[] = [
   {
     id: "t4",
     name: "Grocery Shopping",
-    amount: 128.42,
+    amount: 9631.50,
     type: "expense",
     category: "Food",
     icon: <ShoppingCart className="h-4 w-4" />,
@@ -53,7 +53,7 @@ const transactions: Transaction[] = [
   {
     id: "t5",
     name: "Restaurant Dinner",
-    amount: 65.30,
+    amount: 4897.50,
     type: "expense",
     category: "Food",
     icon: <Utensils className="h-4 w-4" />,
@@ -62,7 +62,7 @@ const transactions: Transaction[] = [
   {
     id: "t6",
     name: "Car Insurance",
-    amount: 89.99,
+    amount: 6749.25,
     type: "expense",
     category: "Transportation",
     icon: <Car className="h-4 w-4" />,
@@ -94,7 +94,7 @@ const RecentTransactions = () => {
               <div className={`font-semibold ${
                 transaction.type === "expense" ? "text-red-500" : "text-green-500"
               }`}>
-                {transaction.type === "expense" ? "-" : "+"}${transaction.amount}
+                {transaction.type === "expense" ? "-" : "+"}₹{transaction.amount.toLocaleString('en-IN')}
               </div>
             </div>
           ))}

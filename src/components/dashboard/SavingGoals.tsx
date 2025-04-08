@@ -16,22 +16,22 @@ const goals: SavingGoal[] = [
   {
     id: "g1",
     name: "Emergency Fund",
-    target: 10000,
-    current: 4236,
+    target: 750000,
+    current: 317700,
     deadline: "December 2025"
   },
   {
     id: "g2",
     name: "Vacation",
-    target: 3000,
-    current: 1500,
+    target: 225000,
+    current: 112500,
     deadline: "August 2025"
   },
   {
     id: "g3",
     name: "New Laptop",
-    target: 2000,
-    current: 800,
+    target: 150000,
+    current: 60000,
     deadline: "October 2025"
   }
 ];
@@ -59,8 +59,8 @@ const SavingGoals = () => {
                 </div>
                 
                 <div className="flex justify-between items-center text-sm">
-                  <div>${goal.current.toLocaleString()}</div>
-                  <div>${goal.target.toLocaleString()}</div>
+                  <div>₹{goal.current.toLocaleString('en-IN')}</div>
+                  <div>₹{goal.target.toLocaleString('en-IN')}</div>
                 </div>
                 
                 <div className="progress-bar">
